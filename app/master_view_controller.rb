@@ -1,4 +1,6 @@
 class MasterViewController < UITableViewController
+  include Locateable
+
   CELL_ID = 'CellIdentifier'
 
   def viewDidLoad
@@ -9,29 +11,8 @@ class MasterViewController < UITableViewController
     navigationItem.title = 'Locations'
     navigationItem.leftBarButtonItem = editButtonItem
 
-    # navigationItem.rightBarButtonItem = UIBarButtonItem.alloc.initWithBarButtonSystemItem(UIBarButtonSystemItemAdd, target:self, action:'addLocation')
-
-    # The Add button is disabled by default, and will be enabled once the
-    # location manager is ready to return the current location.
-    # navigationItem.rightBarButtonItem.enabled = false
-
-    # @location_manager ||= CLLocationManager.alloc.init.tap do |lm|
-    #   lm.desiredAccuracy = KCLLocationAccuracyNearestTenMeters
-    #   lm.startUpdatingLocation
-    #   lm.delegate = self
-    # end
+    location_manager # to request permission
   end
-
-  # def addLocation
-  #   LocationsStore.shared.add_location do |location|
-  #     # We set up our new Location object here.
-  #     coordinate = @location_manager.location.coordinate
-  #     location.creation_date = NSDate.date
-  #     location.latitude = coordinate.latitude
-  #     location.longitude = coordinate.longitude
-  #   end
-  #   view.reloadData
-  # end
 
   def tableView(tableView, numberOfRowsInSection:section)
     LocationsStore.shared.locations.size
@@ -60,12 +41,4 @@ class MasterViewController < UITableViewController
     LocationsStore.shared.remove_location(location)
     tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation:UITableViewRowAnimationFade)
   end
-
-  # def locationManager(manager, didUpdateToLocation:newLocation, fromLocation:oldLocation)
-  #   navigationItem.rightBarButtonItem.enabled = true
-  # end
-
-  # def locationManager(manager, didFailWithError:error)
-  #   navigationItem.rightBarButtonItem.enabled = false
-  # end
 end

@@ -1,19 +1,10 @@
 class NewLocationController < UIViewController
+  include Locateable
+
   CANCEL_BUTTON_TAG = 100
   SAVE_BUTTON_TAG = 101
 
   attr_accessor :lat, :lng, :map
-
-  def viewDidLoad
-    # navigationItem.currentLeftView.
-    #   addTarget(self, action: 'cancel_button_pressed:',
-    #             forControlEvents: UIControlEventTouchUpInside)
-
-    # if button = view.viewWithTag(CANCEL_BUTTON_TAG)
-    #   button.addTarget(self, action: 'cancel_button_pressed:',
-    #                    forControlEvents: UIControlEventTouchUpInside)
-    # end
-  end
 
   def viewWillAppear(animated)
     navigationItem.rightBarButtonItem = UIBarButtonItem.alloc.
@@ -22,13 +13,10 @@ class NewLocationController < UIViewController
                                   action:'addLocation')
     navigationItem.rightBarButtonItem.enabled = false
 
-    @location_manager ||= CLLocationManager.alloc.init.tap do |lm|
-      lm.desiredAccuracy = KCLLocationAccuracyNearestTenMeters
-      lm.startUpdatingLocation
-      lm.delegate = self
-    end
+    lat.text = ''
+    lng.text = ''
 
-    @location_manager.location.coordinate.tap do |coordinate|
+    with_current_location do |coordinate|
       lat.text = '%0.3f' % coordinate.latitude
       lng.text = '%0.3f' % coordinate.longitude
     end
@@ -36,13 +24,14 @@ class NewLocationController < UIViewController
 
   def addLocation
     LocationsStore.shared.add_location do |location|
-      coordinate = @location_manager.location.coordinate
       location.creation_date = NSDate.date
-      location.latitude = coordinate.latitude
-      location.longitude = coordinate.longitude
+
+      with_current_location do |coordinate|
+        location.latitude = coordinate.latitude
+        location.longitude = coordinate.longitude
+      end
     end
-    # view.reloadData
-    # view.dismissModalViewController(animated: true)
+
     performSegueWithIdentifier('locationCreated', sender: self)
   end
 
@@ -53,11 +42,4 @@ class NewLocationController < UIViewController
   def locationManager(manager, didFailWithError:error)
     navigationItem.rightBarButtonItem.enabled = false
   end
-
-  private
-
-  # TODO Add this method to UIViewController or a descendent
-  # def find_subview_with_tag(tag)
-  #   view.subviews.detect { |v| v.tag == tag } or view
-  # end
 end
