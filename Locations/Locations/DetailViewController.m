@@ -16,8 +16,10 @@
 @implementation DetailViewController
 
 @synthesize detailItem = _detailItem;
-@synthesize detailDescriptionLabel = _detailDescriptionLabel;
+//@synthesize detailDescriptionLabel = _detailDescriptionLabel;
 @synthesize masterPopoverController = _masterPopoverController;
+
+@synthesize lat, lng, map;
 
 #pragma mark - Managing the detail item
 
@@ -40,7 +42,7 @@
     // Update the user interface for the detail item.
 
   if (self.detailItem) {
-      self.detailDescriptionLabel.text = [[self.detailItem valueForKey:@"timeStamp"] description];
+    //self.detailDescriptionLabel.text = [[self.detailItem valueForKey:@"timeStamp"] description];
   }
 }
 
@@ -55,7 +57,7 @@
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
-  self.detailDescriptionLabel = nil;
+    //self.detailDescriptionLabel = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

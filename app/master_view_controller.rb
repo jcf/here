@@ -5,6 +5,7 @@ class MasterViewController < UITableViewController
 
   def viewDidLoad
     view.dataSource = view.delegate = self
+    # @detailViewController = DetailViewController.alloc.init
   end
 
   def viewWillAppear(animated)
@@ -32,6 +33,23 @@ class MasterViewController < UITableViewController
     cell
   end
 
+  # - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  #
+  # DetailViewController *dvController = [[DetailViewController alloc] initWithNibName:@"DetailView" bundle:[NSBundle mainBundle]];
+  # [self.navigationController pushViewController:dvController animated:YES];
+  # [dvController release];
+  # dvController = nil;
+  # }
+  def tableView(tableView, didSelectRowAtIndexPath:indexPath)
+    # performSegueWithIdentifier('showLocation', sender: self)
+    # navigationController.pushViewController(detailViewController, animated: true)
+    # @detailViewController.location = LocationsStore.shared.locations[indexPath.row]
+
+    detail_view_controller = storyboard.instantiateViewControllerWithIdentifier('Detail')
+    detail_view_controller.location = LocationsStore.shared.locations[indexPath.row]
+    navigationController.pushViewController(detail_view_controller, animated: true)
+  end
+
   def tableView(tableView, editingStyleForRowAtIndexPath:indexPath)
     UITableViewCellEditingStyleDelete
   end
@@ -40,5 +58,17 @@ class MasterViewController < UITableViewController
     location = LocationsStore.shared.locations[indexPath.row]
     LocationsStore.shared.remove_location(location)
     tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation:UITableViewRowAnimationFade)
+  end
+
+  def prepareForSegue(segue, sender:id)
+    # if ([[segue identifier] isEqualToString:@"showDetail"]) {
+    #   NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    #   NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    #   [[segue destinationViewController] setDetailItem:object];
+    # }
+    if segue.identifier == 'showLocation'
+      location = LocationsStore.shared.locations[tableView.indexPathForSelectedRow]
+      segue.destinationViewController.location = location
+    end
   end
 end

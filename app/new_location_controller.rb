@@ -1,9 +1,6 @@
 class NewLocationController < UIViewController
   include Locateable
 
-  CANCEL_BUTTON_TAG = 100
-  SAVE_BUTTON_TAG = 101
-
   attr_accessor :lat, :lng, :map
 
   def viewWillAppear(animated)

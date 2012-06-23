@@ -28,4 +28,9 @@ class Location < NSManagedObject
       end
     end
   end
+
+  def core_location
+    # [[CLLocation alloc] initWithLatitude:38.0 longitude:-122.0]
+    CLLocation.alloc.initWithLatitude(latitude, longitude: longitude)
+  end
 end
