@@ -1,4 +1,4 @@
-class NewLocationController < UIViewController
+class NewLocationViewController < UIViewController
   include Locateable
 
   attr_accessor :lat, :lng, :map
