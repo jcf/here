@@ -17,10 +17,10 @@
 		5D27A2AA1594D3E90072C5C6 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D27A2A81594D3E90072C5C6 /* MainStoryboard_iPhone.storyboard */; };
 		5D27A2AD1594D3E90072C5C6 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D27A2AB1594D3E90072C5C6 /* MainStoryboard_iPad.storyboard */; };
 		5D27A2B01594D3E90072C5C6 /* Locations.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D27A2AE1594D3E90072C5C6 /* Locations.xcdatamodeld */; };
-		5D27A2B31594D3E90072C5C6 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D27A2B21594D3E90072C5C6 /* MasterViewController.m */; };
-		5D27A2B61594D3E90072C5C6 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D27A2B51594D3E90072C5C6 /* DetailViewController.m */; };
-		5D27A2C2159507470072C5C6 /* NewLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D27A2C1159507470072C5C6 /* NewLocationController.m */; };
+		5D27A2B31594D3E90072C5C6 /* LocationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D27A2B21594D3E90072C5C6 /* LocationListViewController.m */; };
+		5D27A2B61594D3E90072C5C6 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D27A2B51594D3E90072C5C6 /* LocationViewController.m */; };
 		5D27A2C415950DFA0072C5C6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D27A2C315950DFA0072C5C6 /* MapKit.framework */; };
+		5DD4DBB515978ED500E5E679 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9E148115978CF50075150A /* MapViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,13 +38,13 @@
 		5D27A2A91594D3E90072C5C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		5D27A2AC1594D3E90072C5C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		5D27A2AF1594D3E90072C5C6 /* Locations.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Locations.xcdatamodel; sourceTree = "<group>"; };
-		5D27A2B11594D3E90072C5C6 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		5D27A2B21594D3E90072C5C6 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		5D27A2B41594D3E90072C5C6 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		5D27A2B51594D3E90072C5C6 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		5D27A2C0159507470072C5C6 /* NewLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = NewLocationController.h; sourceTree = "<group>"; };
-		5D27A2C1159507470072C5C6 /* NewLocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewLocationController.m; sourceTree = "<group>"; };
+		5D27A2B11594D3E90072C5C6 /* LocationListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationListViewController.h; sourceTree = "<group>"; };
+		5D27A2B21594D3E90072C5C6 /* LocationListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationListViewController.m; sourceTree = "<group>"; };
+		5D27A2B41594D3E90072C5C6 /* LocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
+		5D27A2B51594D3E90072C5C6 /* LocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
 		5D27A2C315950DFA0072C5C6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		5D9E148015978CF50075150A /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		5D9E148115978CF50075150A /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +66,6 @@
 		5D27A2851594D3E90072C5C6 = {
 			isa = PBXGroup;
 			children = (
-				5D27A2C315950DFA0072C5C6 /* MapKit.framework */,
 				5D27A29C1594D3E90072C5C6 /* Locations */,
 				5D27A2931594D3E90072C5C6 /* Frameworks */,
 				5D27A2911594D3E90072C5C6 /* Products */,
@@ -84,6 +83,7 @@
 		5D27A2931594D3E90072C5C6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5D27A2C315950DFA0072C5C6 /* MapKit.framework */,
 				5D27A2941594D3E90072C5C6 /* UIKit.framework */,
 				5D27A2961594D3E90072C5C6 /* Foundation.framework */,
 				5D27A2981594D3E90072C5C6 /* CoreGraphics.framework */,
@@ -98,13 +98,13 @@
 				5D27A2A51594D3E90072C5C6 /* AppDelegate.h */,
 				5D27A2A61594D3E90072C5C6 /* AppDelegate.m */,
 				5D27A2A81594D3E90072C5C6 /* MainStoryboard_iPhone.storyboard */,
-				5D27A2C0159507470072C5C6 /* NewLocationController.h */,
-				5D27A2C1159507470072C5C6 /* NewLocationController.m */,
+				5D9E148015978CF50075150A /* MapViewController.h */,
+				5D9E148115978CF50075150A /* MapViewController.m */,
 				5D27A2AB1594D3E90072C5C6 /* MainStoryboard_iPad.storyboard */,
-				5D27A2B11594D3E90072C5C6 /* MasterViewController.h */,
-				5D27A2B21594D3E90072C5C6 /* MasterViewController.m */,
-				5D27A2B41594D3E90072C5C6 /* DetailViewController.h */,
-				5D27A2B51594D3E90072C5C6 /* DetailViewController.m */,
+				5D27A2B11594D3E90072C5C6 /* LocationListViewController.h */,
+				5D27A2B21594D3E90072C5C6 /* LocationListViewController.m */,
+				5D27A2B41594D3E90072C5C6 /* LocationViewController.h */,
+				5D27A2B51594D3E90072C5C6 /* LocationViewController.m */,
 				5D27A2AE1594D3E90072C5C6 /* Locations.xcdatamodeld */,
 				5D27A29D1594D3E90072C5C6 /* Supporting Files */,
 			);
@@ -188,9 +188,9 @@
 				5D27A2A31594D3E90072C5C6 /* main.m in Sources */,
 				5D27A2A71594D3E90072C5C6 /* AppDelegate.m in Sources */,
 				5D27A2B01594D3E90072C5C6 /* Locations.xcdatamodeld in Sources */,
-				5D27A2B31594D3E90072C5C6 /* MasterViewController.m in Sources */,
-				5D27A2B61594D3E90072C5C6 /* DetailViewController.m in Sources */,
-				5D27A2C2159507470072C5C6 /* NewLocationController.m in Sources */,
+				5D27A2B31594D3E90072C5C6 /* LocationListViewController.m in Sources */,
+				5D27A2B61594D3E90072C5C6 /* LocationViewController.m in Sources */,
+				5DD4DBB515978ED500E5E679 /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +312,7 @@
 				5D27A2BB1594D3E90072C5C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -7,6 +7,10 @@ require 'motion-cocoapods'
 Motion::Project::App.setup do |app|
   app.name = 'Here It Is'
   app.frameworks += %w(CoreData CoreLocation MapKit)
+
+  app.files_dependencies(
+    'app/controllers/location_list_view_controller.rb' => 'app/locateable.rb'
+  )
 end
 
 namespace :sb do

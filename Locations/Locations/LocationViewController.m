@@ -1,25 +1,25 @@
 //
-//  DetailViewController.m
+//  LocationViewController.m
 //  Locations
 //
 //  Created by James Conroy-Finn on 22/06/2012.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "DetailViewController.h"
+#import "LocationViewController.h"
 
-@interface DetailViewController ()
+@interface LocationViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 - (void)configureView;
 @end
 
-@implementation DetailViewController
+@implementation LocationViewController
 
 @synthesize detailItem = _detailItem;
 //@synthesize detailDescriptionLabel = _detailDescriptionLabel;
 @synthesize masterPopoverController = _masterPopoverController;
 
-@synthesize lat, lng, map;
+@synthesize nameCell, latCell, lngCell, mapCell;
 
 #pragma mark - Managing the detail item
 

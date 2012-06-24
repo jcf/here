@@ -1,22 +1,22 @@
 //
-//  MasterViewController.m
+//  LocationListViewController.m
 //  Locations
 //
 //  Created by James Conroy-Finn on 22/06/2012.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "MasterViewController.h"
+#import "LocationListViewController.h"
 
-#import "DetailViewController.h"
+#import "LocationViewController.h"
 
-@interface MasterViewController ()
+@interface LocationListViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 @end
 
-@implementation MasterViewController
+@implementation LocationListViewController
 
-@synthesize detailViewController = _detailViewController;
+@synthesize locationViewController = _locationViewController;
 @synthesize fetchedResultsController = __fetchedResultsController;
 @synthesize managedObjectContext = __managedObjectContext;
 
@@ -35,9 +35,9 @@
 	// Do any additional setup after loading the view, typically from a nib.
   self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-  UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-  self.navigationItem.rightBarButtonItem = addButton;
-  self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+//  UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+//  self.locationViewController.rightBarButtonItem = addButton;
+  self.locationViewController = (LocationViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
 
 - (void)viewDidUnload
@@ -127,7 +127,7 @@
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        self.detailViewController.detailItem = object;
+        self.locationViewController.detailItem = object;
     }
 }
 

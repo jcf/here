@@ -1,19 +1,19 @@
 //
-//  NewLocationViewController.m
+//  MapViewController.m
 //  Locations
 //
-//  Created by James Conroy-Finn on 22/06/2012.
+//  Created by James Conroy-Finn on 24/06/2012.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "NewLocationController.h"
+#import "MapViewController.h"
 
-@interface NewLocationController ()
+@interface MapViewController ()
 
 @end
 
-@implementation NewLocationController
-@synthesize lat, lng, map;
+@implementation MapViewController
+@synthesize map;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,6 +32,7 @@
 
 - (void)viewDidUnload
 {
+    [self setMap:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 
-#import "MasterViewController.h"
+#import "LocationListViewController.h"
 
 @implementation AppDelegate
 
@@ -26,11 +26,11 @@
       splitViewController.delegate = (id)navigationController.topViewController;
       
       UINavigationController *masterNavigationController = [splitViewController.viewControllers objectAtIndex:0];
-      MasterViewController *controller = (MasterViewController *)masterNavigationController.topViewController;
+      LocationListViewController *controller = (LocationListViewController *)masterNavigationController.topViewController;
       controller.managedObjectContext = self.managedObjectContext;
   } else {
       UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-      MasterViewController *controller = (MasterViewController *)navigationController.topViewController;
+      LocationListViewController *controller = (LocationListViewController *)navigationController.topViewController;
       controller.managedObjectContext = self.managedObjectContext;
   }
     return YES;

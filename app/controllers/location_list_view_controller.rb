@@ -1,18 +1,15 @@
-class MasterViewController < UITableViewController
+class LocationListViewController < UITableViewController
   include Locateable
 
   CELL_ID = 'CellIdentifier'
 
   def viewDidLoad
     view.dataSource = view.delegate = self
-    # @detailViewController = DetailViewController.alloc.init
   end
 
   def viewWillAppear(animated)
     navigationItem.title = 'Locations'
     navigationItem.leftBarButtonItem = editButtonItem
-
-    location_manager # to request permission
   end
 
   def tableView(tableView, numberOfRowsInSection:section)
@@ -33,21 +30,10 @@ class MasterViewController < UITableViewController
     cell
   end
 
-  # - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  #
-  # DetailViewController *dvController = [[DetailViewController alloc] initWithNibName:@"DetailView" bundle:[NSBundle mainBundle]];
-  # [self.navigationController pushViewController:dvController animated:YES];
-  # [dvController release];
-  # dvController = nil;
-  # }
   def tableView(tableView, didSelectRowAtIndexPath:indexPath)
-    # performSegueWithIdentifier('showLocation', sender: self)
-    # navigationController.pushViewController(detailViewController, animated: true)
-    # @detailViewController.location = LocationsStore.shared.locations[indexPath.row]
-
-    detail_view_controller = storyboard.instantiateViewControllerWithIdentifier('Detail')
-    detail_view_controller.location = LocationsStore.shared.locations[indexPath.row]
-    navigationController.pushViewController(detail_view_controller, animated: true)
+    location_view_controller = storyboard.instantiateViewControllerWithIdentifier('Detail')
+    location_view_controller.location = LocationsStore.shared.locations[indexPath.row]
+    navigationController.pushViewController(location_view_controller, animated: true)
   end
 
   def tableView(tableView, editingStyleForRowAtIndexPath:indexPath)
