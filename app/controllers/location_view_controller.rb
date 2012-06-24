@@ -30,6 +30,7 @@ class LocationViewController < UITableViewController
 
   def locationManager(manager, didUpdateToLocation:newLocation, fromLocation:oldLocation)
     enable_right_navigation_button
+    configure_view
   end
 
   def locationManager(manager, didFailWithError:error)
